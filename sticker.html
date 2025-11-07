@@ -232,7 +232,7 @@
 
       const editorSide = document.getElementById('editor-side');
       const VISUAL_WIDTH = editorSide.clientWidth;
-      const STICKER_SIZE = VISUAL_WIDTH / 3.5; // <-- BARIS BARU
+      const STICKER_SIZE = VISUAL_WIDTH / 4.5; // <-- BARIS INI DIUBAH
 
       const chosenLayout = sessionStorage.getItem("chosenLayout") || 'strip-v';
       const chosenColor = sessionStorage.getItem("chosenColor") || '#333333';
@@ -300,7 +300,6 @@
         img.addEventListener('click', (e) => {
           const stickerSrc = e.target.src;
 
-          // <-- BARIS DIUBAH
           const newPos = {
             x: (stage.width() / 2) - (STICKER_SIZE / 2),
             y: (stage.height() / 2) - (STICKER_SIZE / 2)
@@ -310,8 +309,8 @@
             konvaImage.setAttrs({
               x: newPos.x,
               y: newPos.y,
-              width: STICKER_SIZE,  // <-- BARIS DIUBAH
-              height: STICKER_SIZE, // <-- BARIS DIUBAH
+              width: STICKER_SIZE,
+              height: STICKER_SIZE,
               draggable: true,
               name: 'sticker'
             });
