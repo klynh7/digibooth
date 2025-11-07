@@ -43,7 +43,11 @@
       display: flex; flex-direction: column; align-items: center;
     }
 
-    #konva-stage { background-color: #eee; }
+    #konva-stage { 
+      background-color: #eee; 
+      touch-action: pan-y; /* <-- INI DIA PERBAIKANNYA */
+    }
+    
     .editor-controls {
       margin-top: 15px; display: flex; gap: 10px; width: 100%;
     }
@@ -164,7 +168,7 @@
       color: #fbf5e9; 
     }
     #modal-close-btn {
-      background-color: #ffffff; 
+      background-color: #ffffff;
       color: #3d4428; 
     }
 
