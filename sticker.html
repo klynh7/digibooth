@@ -7,6 +7,7 @@
   <script src="https://unpkg.com/konva@9.3.13/konva.min.js"></script>
   
   <style>
+    /* 1. Import Font & Reset CSS */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     *{
       padding: 0;
@@ -15,6 +16,7 @@
       font-family: 'Poppins', 'sans-serif';
     }
 
+    /* 2. Body (scroll sudah diperbaiki) */
     body {
       display: flex; flex-direction: column;
       align-items: center; 
@@ -25,6 +27,7 @@
       padding: 20px; 
     }
 
+    /* 3. Box utama */
     .box {
       background: rgba(251, 245, 233, 0.7);
       backdrop-filter: blur(5px);
@@ -39,6 +42,7 @@
       max-width: 1100px;
     }
 
+    /* 4. Style H1 */
     h1 { 
       font-size: 25px;
       font-weight: 600;
@@ -49,6 +53,7 @@
       text-align: center;
     }
 
+    /* 5. Editor Layout */
     .editor-layout {
       display: flex; flex-wrap: wrap; gap: 20px;
       width: 100%;
@@ -79,6 +84,7 @@
     #finish-btn { background-color: #a6b78d; color: #fbf5e9; }
     #delete-btn { background-color: #e74c3c; color: white; display: none; }
 
+    /* 6. [PERBAIKAN] Palette Side */
     #palette-side {
       flex: 0 0 auto; max-width: 350px; width: 100%;
       min-width: 250px; 
@@ -87,7 +93,7 @@
       border-radius: 8px; 
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       display: flex; flex-direction: column;
-      position: sticky; top: 20px;
+      /* position: sticky; top: 20px;  <-- INI DIHAPUS */
     }
 
     #palette-side h3 {
@@ -111,9 +117,10 @@
 
     .palette-items img:active { cursor: grabbing; }
     
+    /* 7. Media query (untuk HP) */
     @media (max-width: 767px) {
+      /* Tidak perlu 'position: static;' lagi karena sudah dihapus */
       #palette-side { 
-        position: static; 
         max-width: 400px; 
       }
       #editor-side {
@@ -124,6 +131,7 @@
       }
     }
     
+    /* ... (CSS untuk Modal/Pop-up tidak berubah) ... */
     #preview-modal-overlay {
       display: none; 
       position: fixed; 
@@ -234,6 +242,7 @@
   </div>
 
   <script>
+    /* ... (JavaScript tidak perlu diubah sama sekali) ... */
     let stage, layer, tr;
     let dragSrc = null;
     let selectedNode = null;
