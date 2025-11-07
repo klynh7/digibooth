@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digibooth by @baris dua</title>
+  <title>digibooth by @baris dua</title>
   <script src="https://unpkg.com/konva@9.3.13/konva.min.js"></script>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
     *{
       padding: 0;
       margin: 0;
@@ -18,16 +17,41 @@
 
     body {
       display: flex; flex-direction: column;
-      align-items: center; min-height: 100vh;
+      align-items: center; 
+      justify-content: center; 
+      min-height: 100vh;
       background: radial-gradient(circle, #a6b78d 0%, #fbf5e9 70%);
       color: #3d4428; 
       margin: 0; padding: 20px; 
     }
 
-    h1 { margin-bottom: 20px; }
+    .box {
+      background: rgba(251, 245, 233, 0.7);
+      backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+                  0 32px 64px -48px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    h1 { 
+      font-size: 25px;
+      font-weight: 600;
+      padding-bottom: 10px;
+      border-bottom: 1px solid white;
+      margin-bottom: 30px; 
+      width: 100%;
+      text-align: center;
+    }
+
     .editor-layout {
       display: flex; flex-wrap: wrap; gap: 20px;
-      width: 100%; max-width: 1100px;
+      width: 100%;
       justify-content: center; align-items: flex-start;
     }
 
@@ -53,25 +77,24 @@
     }
 
     #finish-btn { background-color: #a6b78d; color: #fbf5e9; }
-
     #delete-btn { background-color: #e74c3c; color: white; display: none; }
 
     #palette-side {
       flex: 0 0 auto; max-width: 350px; width: 100%;
       min-width: 250px; 
-      background: rgba(251, 245, 233, 0.7); 
-      backdrop-filter: blur(5px); 
-      padding: 25px; 
-      border-radius: 20px; 
-      box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-                  0 32px 64px -48px rgba(0, 0, 0, 0.5); 
+      
+      background: #fff; 
+      padding: 15px; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      
       display: flex; flex-direction: column;
       position: sticky; top: 20px;
     }
 
     #palette-side h3 {
       text-align: center; margin-top: 0; 
-      border-bottom: 1px solid white; 
+      border-bottom: 2px solid #f0f0f0; 
       padding-bottom: 10px; flex-shrink: 0;
     }
 
@@ -89,10 +112,18 @@
     }
 
     .palette-items img:active { cursor: grabbing; }
+    
     @media (max-width: 767px) {
-      .editor-layout { flex-direction: column; align-items: center; }
-      #editor-side, #palette-side { width: 100%; max-width: 400px; }
-      #palette-side { position: static; }
+      #palette-side { 
+        position: static; 
+        max-width: 400px; 
+      }
+      #editor-side {
+        max-width: 400px; 
+      }
+      .box {
+        padding: 15px; 
+      }
     }
     
     #preview-modal-overlay {
@@ -108,7 +139,6 @@
       z-index: 1000;
       backdrop-filter: blur(5px);
     }
-    
     #preview-modal-content {
       background: rgba(251, 245, 233, 0.8); 
       backdrop-filter: blur(10px); 
@@ -119,27 +149,23 @@
       text-align: center;
       border: 1px solid white; 
     }
-    
     #preview-modal-content h2 {
       margin-top: 0;
       color: #3d4428; 
       border-bottom: 1px solid white; 
       padding-bottom: 10px;
     }
-    
     #preview-image-container {
       margin: 20px 0;
       max-width: 80vw;
       max-height: 70vh;
       overflow: auto; 
     }
-    
     #preview-image-container img {
       max-width: 100%;
       height: auto;
       border: 1px solid #ccc;
     }
-    
     .modal-buttons {
       display: flex;
       gap: 10px;
@@ -169,33 +195,33 @@
 </head>
 <body>
 
-  <h1>Decorate Your Strip</h1>
-  
-  <div class="editor-layout">
-    <div id="editor-side">
-      <div id="konva-stage"></div>
-      <div class="editor-controls">
-        <button id="finish-btn">Selesai</button>
-        <button id="delete-btn">Delete</button>
-      </div>
-    </div>
+  <div class="box">
+    <h1>Decorate Your Strip</h1>
     
-    <div id="palette-side">
-      <h3>Stickers</h3>
-      <div id="stickers-palette" class="palette-items">
-        <img src="stickers/animal.png" class="sticker" draggable="true">
-        <img src="stickers/cars.png" class="sticker" draggable="true">
-        <img src="stickers/love.png" class="sticker" draggable="true">
-        <img src="stickers/paper_plane.png" class="sticker" draggable="true">
-        <img src="stickers/rainbow.png" class="sticker" draggable="true">
-        <img src="stickers/stars.png" class="sticker" draggable="true">
-        <img src="stickers/stars2.png" class="sticker" draggable="true">
-        <img src="stickers/sun.png" class="sticker" draggable="true">
+    <div class="editor-layout">
+      <div id="editor-side">
+        <div id="konva-stage"></div>
+        <div class="editor-controls">
+          <button id="finish-btn">Selesai</button>
+          <button id="delete-btn">Delete</button>
+        </div>
+      </div>
+      
+      <div id="palette-side">
+        <h3>Stickers</h3>
+        <div id="stickers-palette" class="palette-items">
+          <img src="stickers/animal.png" class="sticker" draggable="true">
+          <img src="stickers/cars.png" class="sticker" draggable="true">
+          <img src="stickers/love.png" class="sticker" draggable="true">
+          <img src="stickers/paper_plane.png" class="sticker" draggable="true">
+          <img src="stickers/rainbow.png" class="sticker" draggable="true">
+          <img src="stickers/stars.png" class="sticker" draggable="true">
+          <img src="stickers/stars2.png" class="sticker" draggable="true">
+          <img src="stickers/sun.png" class="sticker" draggable="true">
+        </div>
       </div>
     </div>
-  </div>
-
-  <div id="preview-modal-overlay">
+  </div> <div id="preview-modal-overlay">
     <div id="preview-modal-content">
       <h2>Your Final Photostrip</h2>
       <div id="preview-image-container">
