@@ -4,58 +4,164 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Write Review — Digibooth</title>
-</head>
+    <title>Write a Review — Digibooth</title>
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'sans-serif';
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            background: radial-gradient(circle, #a6b78d 0%, #fbf5e9 70%);
+            color: #3d4428;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .box {
+            background: rgba(251, 245, 233, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow:
+                0 0 128px 0 rgba(0, 0, 0, 0.1),
+                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 20px;
+        }
+
+        .form-box header {
+            font-size: 25px;
+            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 1px solid white;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        
+        .field label {
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: 500; /* Dibuat sama spt gambar */
+        }
+
+        /* Ini style untuk <input> dari login.html */
+        .input input {
+            width: 100%;
+            font-size: 16px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        
+        /* --- STYLE BARU YG DITAMBAHKAN --- */
+        /* Ini style untuk <textarea> */
+        .field textarea {
+            width: 100%;
+            font-size: 16px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            resize: none; 
+            height: 150px; /* Tinggi disesuaikan */
+            font-family: 'Poppins', 'sans-serif'; /* Wajib agar font seragam */
+        }
+        
+        /* Style untuk teks "Max 500 words" */
+        .field .char-limit {
+            text-align: left;
+            font-size: 13px;
+            color: #7c875c; /* Warna dari reviews.html */
+            margin-top: 5px;
+        }
+        /* --- AKHIR STYLE BARU --- */
+
+        .btn {
+            width: 100%;
+            height: 35px;
+            background: #a6b78d;
+            border: 0;
+            border-radius: 5px;
+            color: #3d4428;
+            font-size: 15px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            opacity: 0.82;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .links a {
+          color: #3d4428;
+          font-weight: 600;
+          text-decoration: none; /* Hapus garis bawah */
+        }
+        .links a:hover {
+          color: #a6b78d;
+        }
+        
+    </style>
+</head>
 <body>
     <div class="container">
-        
         <div class="box form-box">
-
             <header>Write a Review</header>
-
             <form action="" method="post">
-
-                <div class="field input">
+                
+                <div class="field">
                     <label for="review">Your Review</label>
-                    <textarea 
-                        id="review" 
-                        name="review" 
-                        rows="7"
-                        maxlength="3000" 
-                        placeholder="Write your experience with Digibooth..."
-                        required
-                        style="
-                            resize: none;
-                            padding: 10px;
-                            font-size: 15px;
-                            border-radius: 5px;
-                            border: 1px solid #ccc;
-                            font-family: 'Poppins', sans-serif;
-                            outline: none;"></textarea>
-                    <small style="margin-top:5px; color:#7c875c;">Max 500 words</small>
+                    <textarea name="review" id="review" placeholder="Write your experience with Digibooth..." required></textarea>
+                    <div class="char-limit">Max 500 words</div>
                 </div>
 
                 <div class="field">
-                    <input type="submit" class="btn" value="Submit Review">
+                    <input type="submit" class="btn" name="submit" value="Submit Review" required>
                 </div>
 
-                <div class="field" style="text-align:center; margin-top:10px;">
-                    <a href="reviews.html" style="
-                        color:#7c875c;
-                        font-weight:500;
-                        text-decoration:none;
-                        transition:0.3s;">
-                        ← Back to Reviews
-                    </a>
+                <div class="links">
+                    <a href="reviews.html">← Back to Reviews</a>
                 </div>
-
             </form>
-
         </div>
-
     </div>
-
 </body>
 </html>
