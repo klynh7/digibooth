@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — Digibooth</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box; 
+            font-family: 'Poppins', 'sans-serif';
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            background: radial-gradient(circle, #a6b78d 0%, #fbf5e9 70%);
+            color: #3d4428;
+            padding: 20px 0; 
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .box {
+            background: rgba(251, 245, 233, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow:
+                0 0 128px 0 rgba(0, 0, 0, 0.1),
+                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-box {
+            width: 100%;      
+            max-width: 450px; 
+            margin: 0 20px;   
+        }
+
+        .form-box header {
+            font-size: 25px;
+            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 1px solid white;
+            margin-bottom: 10px;
+            text-align: center; 
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        
+        .field label {
+            text-align: left; 
+            margin-bottom: 5px; 
+        }
+
+        .input input {
+            width: 100%;
+            font-size: 16px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%; 
+            height: 35px;
+            background: #a6b78d;
+            border: 0;
+            border-radius: 5px;
+            color: #3d4428;
+            font-size: 15px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            opacity: 0.82;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box form-box">
+            <header>Sign Up</header>
+            <form action="" method="post">
+                <div class="field input">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" autocomplete="off" required>
+                </div>
+                
+                <div class="field input">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" id="age" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+
+                <div class="field">
+                    <input type="submit" class="btn" name="submit" value="Sign Up" required>
+                </div>
+
+                <div class="links">
+                    Already a member? <a href="login.html">Log In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
